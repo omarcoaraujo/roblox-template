@@ -1,0 +1,8 @@
+syntax = 'Luau'
+collapse_simple_statement = 'ConditionalOnly'
+space_after_function_names = 'Never'
+call_parentheses = 'Input'
+quote_style = 'AutoPreferDouble'
+
+[sort_requires]
+enabled = true

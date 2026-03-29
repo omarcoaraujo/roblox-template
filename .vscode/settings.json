@@ -1,0 +1,33 @@
+{
+    "charmed-icons.associations.folders": {
+        "loading": "folder_client",
+        "network": "folder_event",
+        "analytics": "folder_benchmark",
+        "migrations": "folder_config",
+        "engagement": "folder_event",
+        "stores": "folder_database",
+        "balancing": "folder_benchmark",
+        "domains": "folder_module",
+    },
+    
+    "[luau]": {
+        "editor.foldingImportsByDefault": false,
+        "editor.showFoldingControls": "always",
+        "editor.foldingStrategy": "indentation",
+        "editor.unfoldOnClickAfterEndOfLine": false,
+        "editor.defaultFormatter": "JohnnyMorganz.stylua"
+    },
+
+    "stylua.targetReleaseVersion": "latest",
+    "luau-lsp.sourcemap.rojoProjectFile": "dev.project.json",
+    "luau-lsp.platform.type": "roblox",
+    "luau-lsp.completion.imports.stringRequires.enabled": true,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true
+    },
+    "hide-files.files": [],
+}

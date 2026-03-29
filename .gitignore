@@ -1,0 +1,27 @@
+# Project place file
+/project.rbxlx
+
+# Roblox Studio lock files
+/*.rbxlx.lock
+/*.rbxl.lock
+
+# Build
+/sourcemap.json
+
+# Environment
+.env
+TODO.md
+
+# Blink
+**/network/**
+
+# Wally
+**/packages/**
+**/serverPackages/**
+
+# Asphalt
+**/imageIds.luau
+
+# Lock Files
+/asphalt.lock.toml
+/wally.lock

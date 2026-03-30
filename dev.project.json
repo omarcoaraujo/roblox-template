@@ -1,0 +1,66 @@
+{
+  "name": "Make Fans",
+  "tree": {
+    "$className": "DataModel",
+
+    "ReplicatedStorage": {
+      "shared": {
+        "$path": "src/shared"
+      },
+
+      "packages": {
+        "$path": "packages"
+      },
+
+      "vendor": {
+        "$path": "vendor"
+      },
+
+      "data": {
+        "$path": "data/shared"
+      },
+
+      "ui": {
+        "$path": "src/ui"
+      },
+
+      "clientModules": {
+        "$path": "src/client"
+      }
+    },
+
+    "ReplicatedFirst": {
+      "loading": {
+        "$path": "src/loading"
+      }
+    },
+
+    "ServerScriptService": {
+      "server": {
+        "$path": "src/.server.luau"
+      }
+    },
+
+    "ServerStorage": {
+      "serverPackages": {
+        "$path": "serverPackages"
+      },
+
+      "serverModules": {
+          "$path": "src/server"
+      },
+
+      "data": {
+        "$path": "data/server"
+      }
+    },
+
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "client": {
+          "$path": "src/.client.luau"
+        }
+      }
+    }
+  }
+}

@@ -15,13 +15,15 @@ TODO.md
 # Blink
 **/network/**
 
-# Wally
-**/packages/**
-**/serverPackages/**
-
 # Asphalt
 **/imageIds.luau
 
+# Pesde
+/roblox_packages/
+/roblox_server_packages/
+/lune_packages/
+/luau_packages/
+/.pesde/
+
 # Lock Files
 /asphalt.lock.toml
-/wally.lock

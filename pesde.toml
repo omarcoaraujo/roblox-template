@@ -1,0 +1,33 @@
+name = "omarcoaraujo/roblox_template"
+version = "0.1.0"
+private = true
+
+[target]
+environment = "roblox"
+
+[indices]
+default = "https://github.com/pesde-pkg/index"
+
+[wally_indices]
+default = "https://github.com/UpliftGames/wally-index"
+
+[place]
+shared = "game.ReplicatedStorage.packages"
+server = "game.ServerStorage.serverPackages"
+
+[scripts]
+roblox_sync_config_generator = ".pesde/scripts_rojo/roblox_sync_config_generator.luau"
+sourcemap_generator = ".pesde/scripts_rojo/sourcemap_generator.luau"
+
+[dependencies]
+vide = { name = "centau/vide", version = "^0.4.0" }
+ui_labs = { name = "pepeeltoro41/ui_labs", version = "^2.4.2" }
+signal = { wally = "ffrostfall/luausignal", version = "^0.5.0" }
+promise = { wally = "lukadev-0/typed-promise", version = "^4.0.2" }
+topbarplus = { wally = "1foreverhd/topbarplus", version = "^3.4.0" }
+charm = { wally = "littensy/charm", version = "^0.11.1" }
+ripple = { wally = "littensy/ripple", version = "^0.10.1" }
+profile_store = { wally = "lm-loleris/profilestore", version = "^1.0.3", target = "roblox_server" }
+
+[dev_dependencies]
+scripts_rojo = { name = "pesde/scripts_rojo", version = "^0.2.0", target = "lune" }

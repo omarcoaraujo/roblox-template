@@ -9,11 +9,7 @@
       },
 
       "packages": {
-        "$path": "packages"
-      },
-
-      "vendor": {
-        "$path": "vendor"
+        "$path": "roblox_packages"
       },
 
       "data": {
@@ -43,7 +39,7 @@
 
     "ServerStorage": {
       "serverPackages": {
-        "$path": "serverPackages"
+        "$path": "roblox_server_packages"
       },
 
       "serverModules": {

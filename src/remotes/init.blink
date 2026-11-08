@@ -5,3 +5,5 @@ option ClientOutput = "../shared/network/client.luau"
 option WriteValidations = true
 option SyncValidation = false
 option Casing = Snake
+
+import "./definitions/player/init.blink" as player

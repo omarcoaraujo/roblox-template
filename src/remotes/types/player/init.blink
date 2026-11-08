@@ -1,0 +1,5 @@
+export type version = u32
+
+export struct data {
+    version: version,
+}

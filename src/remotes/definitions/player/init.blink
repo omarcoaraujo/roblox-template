@@ -1,0 +1,10 @@
+import "../../types/player/init.blink" as types
+
+function ready {
+    yield: Coroutine,
+}
+
+function get_data {
+    yield: Coroutine,
+    return: types.data?
+}

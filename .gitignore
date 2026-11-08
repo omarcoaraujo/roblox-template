@@ -27,3 +27,16 @@ TODO.md
 
 # Lock Files
 /asphalt.lock.toml
+
+# luau-lsp definitions (downloaded)
+/roblox.d.luau
+
+# Test places
+/test-place.rbxl
+/test-place.rbxlx
+
+# Scrim playtest output
+/build/
+
+# Claude
+/.claude/

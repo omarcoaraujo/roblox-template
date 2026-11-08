@@ -1,5 +1,5 @@
 {
-  "name": "Make Fans",
+  "name": "Roblox Template",
   "tree": {
     "$className": "DataModel",
 
@@ -20,7 +20,11 @@
         "$path": "src/ui"
       },
 
-      "clientModules": {
+      "stories": {
+        "$path": "src/stories"
+      },
+
+      "client_modules": {
         "$path": "src/client"
       }
     },
@@ -28,6 +32,10 @@
     "ReplicatedFirst": {
       "loading": {
         "$path": "src/loading"
+      },
+
+      "packages": {
+        "$path": "roblox_packages"
       }
     },
 
@@ -38,12 +46,12 @@
     },
 
     "ServerStorage": {
-      "serverPackages": {
+      "server_packages": {
         "$path": "roblox_server_packages"
       },
 
-      "serverModules": {
-          "$path": "src/server"
+      "server_modules": {
+        "$path": "src/server"
       },
 
       "data": {

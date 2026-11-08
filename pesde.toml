@@ -13,7 +13,7 @@ default = "https://github.com/UpliftGames/wally-index"
 
 [place]
 shared = "game.ReplicatedStorage.packages"
-server = "game.ServerStorage.serverPackages"
+server = "game.ServerStorage.server_packages"
 
 [scripts]
 roblox_sync_config_generator = ".pesde/scripts_rojo/roblox_sync_config_generator.luau"

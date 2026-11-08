@@ -1,0 +1,28 @@
+[tasks.sourcemap]
+run = "rojo sourcemap dev.project.json --output sourcemap.json"
+
+[tasks.blink]
+run = "blink ./src/remotes/init.blink"
+
+[tasks.asphalt]
+run = "asphalt sync"
+
+[tasks.wally-install]
+run = """
+wally install
+if (Test-Path Packages) { Rename-Item Packages _tmp_packages; Rename-Item _tmp_packages packages }
+if (Test-Path ServerPackages) { Rename-Item ServerPackages _tmp_serverPackages; Rename-Item _tmp_serverPackages serverPackages }
+rojo sourcemap dev.project.json --output sourcemap.json
+wally-package-types --sourcemap sourcemap.json ./packages/
+wally-package-types --sourcemap sourcemap.json ./serverPackages/
+"""
+shell = "powershell"
+
+[tasks.build]
+run = "mise run wally-install && mise run blink && mise run asphalt"
+
+[tasks.dev]
+depends = ["build"]
+run = """
+rojo serve dev.project.json
+"""

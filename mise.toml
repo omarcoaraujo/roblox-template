@@ -2,7 +2,7 @@
 run = "rojo sourcemap dev.project.json --output sourcemap.json"
 
 [tasks.blink]
-run = "blink ./src/remotes/init.blink"
+run = "blink ./src/remotes/init.blink --yes"
 
 [tasks.asphalt]
 run = "asphalt sync"
@@ -11,7 +11,7 @@ run = "asphalt sync"
 run = "pesde install"
 
 [tasks.build]
-run = "mise run install && mise run sourcemap && mise run blink && mise run asphalt"
+run = "mise run install && mise run sourcemap && mise run blink"
 
 [tasks.dev]
 depends = ["build"]

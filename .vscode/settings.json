@@ -2,12 +2,12 @@
     "charmed-icons.associations.folders": {
         "loading": "folder_client",
         "network": "folder_event",
-        "analytics": "folder_benchmark",
         "migrations": "folder_config",
-        "engagement": "folder_event",
         "stores": "folder_database",
-        "balancing": "folder_benchmark",
-        "domains": "folder_module",
+        "definitions": "folder_function",
+        "playtests": "folder_test",
+        "specs": "folder_test",
+        "helpers": "folder_util"
     },
     
     "[luau]": {
@@ -23,6 +23,7 @@
     "luau-lsp.platform.type": "roblox",
     "luau-lsp.completion.imports.stringRequires.enabled": true,
     "files.exclude": {
+        "**/*_packages": true,
         "**/.git": true,
         "**/.svn": true,
         "**/.hg": true,

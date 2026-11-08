@@ -74,6 +74,27 @@ index_url = "https://github.com/pesde-pkg/index"
 ref_ty = "pesde"
 index_url = "https://github.com/pesde-pkg/index"
 
+[graph."omarcoaraujo/backstage@0.17.0 roblox"]
+direct = ["backstage", { name = "omarcoaraujo/backstage", version = "^0.17.0", index = "default" }, "standard"]
+
+[graph."omarcoaraujo/backstage@0.17.0 roblox".dependencies]
+vide = ["centau/vide@0.4.0 roblox", "standard"]
+
+[graph."omarcoaraujo/backstage@0.17.0 roblox".pkg_ref]
+ref_ty = "pesde"
+index_url = "https://github.com/pesde-pkg/index"
+
+[graph."omarcoaraujo/backstage@0.17.0 roblox".pkg_ref.dependencies]
+charm = [{ wally = "wally#littensy/charm", version = "^0.11.1", index = "https://github.com/UpliftGames/wally-index" }, "dev"]
+vide = [{ name = "centau/vide", version = "^0.4.0", index = "https://github.com/pesde-pkg/index" }, "standard"]
+
+[graph."omarcoaraujo/scrim@0.1.5 roblox"]
+direct = ["scrim", { name = "omarcoaraujo/scrim", version = "^0.1.5", index = "default" }, "standard"]
+
+[graph."omarcoaraujo/scrim@0.1.5 roblox".pkg_ref]
+ref_ty = "pesde"
+index_url = "https://github.com/pesde-pkg/index"
+
 [graph."pepeeltoro41/ui_labs@2.4.2 roblox"]
 direct = ["ui_labs", { name = "pepeeltoro41/ui_labs", version = "^2.4.2", index = "default" }, "standard"]
 
@@ -147,14 +168,17 @@ direct = ["topbarplus", { wally = "wally#1foreverhd/topbarplus", version = "^3.4
 ref_ty = "wally"
 index_url = "https://github.com/UpliftGames/wally-index"
 
-[graph."wally#evaera/promise@4.0.0 roblox".pkg_ref]
+[graph."wally#ernisto/rng@1.0.0-rc.7 roblox"]
+direct = ["rng", { wally = "wally#ernisto/rng", version = "=1.0.0-rc.7", index = "default" }, "standard"]
+
+[graph."wally#ernisto/rng@1.0.0-rc.7 roblox".pkg_ref]
 ref_ty = "wally"
 index_url = "https://github.com/UpliftGames/wally-index"
 
-[graph."wally#ffrostfall/luausignal@0.5.0 roblox"]
-direct = ["signal", { wally = "wally#ffrostfall/luausignal", version = "^0.5.0", index = "default" }, "standard"]
+[graph."wally#ldgerrits/quickzone@1.5.1 roblox"]
+direct = ["quickzone", { wally = "wally#ldgerrits/quickzone", version = "^1.4.7", index = "default" }, "standard"]
 
-[graph."wally#ffrostfall/luausignal@0.5.0 roblox".pkg_ref]
+[graph."wally#ldgerrits/quickzone@1.5.1 roblox".pkg_ref]
 ref_ty = "wally"
 index_url = "https://github.com/UpliftGames/wally-index"
 
@@ -178,16 +202,3 @@ direct = ["profile_store", { wally = "wally#lm-loleris/profilestore", version = 
 [graph."wally#lm-loleris/profilestore@1.0.3 roblox_server".pkg_ref]
 ref_ty = "wally"
 index_url = "https://github.com/UpliftGames/wally-index"
-
-[graph."wally#lukadev-0/typed-promise@4.0.2 roblox"]
-direct = ["promise", { wally = "wally#lukadev-0/typed-promise", version = "^4.0.2", index = "default" }, "standard"]
-
-[graph."wally#lukadev-0/typed-promise@4.0.2 roblox".dependencies]
-Promise = ["wally#evaera/promise@4.0.0 roblox", "standard"]
-
-[graph."wally#lukadev-0/typed-promise@4.0.2 roblox".pkg_ref]
-ref_ty = "wally"
-index_url = "https://github.com/UpliftGames/wally-index"
-
-[graph."wally#lukadev-0/typed-promise@4.0.2 roblox".pkg_ref.dependencies]
-Promise = [{ wally = "wally#evaera/promise", version = ">=4.0.0, <5.0.0", index = "https://github.com/UpliftGames/wally-index" }, "standard"]

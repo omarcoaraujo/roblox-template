@@ -1,0 +1,7 @@
+option TypesOutput = "../shared/network/types.luau"
+option ServerOutput = "../shared/network/server.luau"
+option ClientOutput = "../shared/network/client.luau"
+
+option WriteValidations = true
+option SyncValidation = false
+option Casing = Snake

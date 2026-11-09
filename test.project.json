@@ -1,0 +1,81 @@
+{
+  "name": "Roblox Template [CI]",
+  "tree": {
+    "$className": "DataModel",
+
+    "ReplicatedStorage": {
+      "shared": {
+        "$path": "src/shared"
+      },
+
+      "packages": {
+        "$path": "roblox_packages"
+      },
+
+      "tests": {
+        "$path": "tests"
+      },
+
+      "data": {
+        "$path": "data/shared"
+      },
+
+      "ui": {
+        "$path": "src/ui"
+      },
+
+      "client_modules": {
+        "$path": "src/client"
+      }
+    },
+
+    "ReplicatedFirst": {
+      "loading": {
+        "$path": "src/loading"
+      },
+
+      "packages": {
+        "$path": "roblox_packages"
+      }
+    },
+
+    "ServerScriptService": {
+      "$properties": {
+        "LoadStringEnabled": true
+      }
+    },
+
+    "ServerStorage": {
+      "server_packages": {
+        "$path": "roblox_server_packages"
+      },
+
+      "server_modules": {
+        "$path": "src/server"
+      },
+
+      "data": {
+        "$path": "data/server"
+      }
+    },
+
+    "Workspace": {
+      "$properties": {
+        "FilteringEnabled": true
+      },
+
+      "Baseplate": {
+        "$className": "Part",
+        "$properties": {
+          "Anchored": true,
+          "Locked": true,
+          "Position": [0, -10, 0],
+          "Size": [512, 20, 512]
+        }
+      }
+    },
+
+    "Lighting": {},
+    "SoundService": {}
+  }
+}

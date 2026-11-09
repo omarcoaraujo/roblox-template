@@ -17,7 +17,7 @@ run = "pesde install"
 run = "mise run install && mise run sourcemap && mise run blink"
 
 [tasks.format]
-run = "stylua src data"
+run = "stylua src data tests scripts"
 
 [tasks.analyze]
 depends = ["sourcemap"]
@@ -34,7 +34,7 @@ luau-lsp analyze \
 	--ignore="**/lune_packages/**" \
 	--ignore="**/luau_packages/**" \
 	--ignore="**/cloud_test.luau" \
-	src data
+	src data tests scripts
 """
 
 [tasks.rojo]
@@ -46,3 +46,16 @@ run = "backstage serve --port {{env.port}}"
 [tasks.dev]
 depends = ["build"]
 run = [{ tasks = ["rojo", "backstage"] }]
+
+[tasks.test]
+depends = ["blink"]
+shell = "bash -c"
+run = """
+if [ "{{flag(name='cloud')}}" = "true" ]; then
+	sh scripts/cloud_test.sh
+else
+	sh scripts/repair_studio_path.sh
+	rojo build test.project.json --output test-place.rbxl
+	sh scripts/minimized.sh run-in-roblox --place test-place.rbxl --script scripts/run_tests.luau
+fi
+"""

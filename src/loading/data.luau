@@ -96,4 +96,52 @@ return backstage.config("loading", {
 			fade_seconds = { min = 0.05, max = 3, step = 0.01 },
 		},
 	},
+
+	hints = {
+		colors = {
+			background = "Color of the full screen behind the dots",
+			idle = "Color of a dot that is still waiting",
+			dot = "Color of a dot once it is active",
+		},
+
+		dots = {
+			count = "How many dots there are; each turns active at an equal share of the progress",
+			diameter = "Size of each dot in pixels",
+
+			spacing = "Space between the centers of two dots in pixels",
+			height = "Height in pixels of the area the dots move in",
+			rest = "Where the dots sit inside that area, from top to bottom",
+		},
+
+		jump = {
+			cycle = "Seconds between the start of two jumps of an active dot",
+			duration = "Seconds one jump takes",
+
+			rise = "Share of the jump spent going up",
+			stagger = "Delay between the jump of one dot and the next",
+			height = "How high an active dot jumps",
+		},
+
+		waiting = {
+			height = "How high a waiting dot hops",
+			cycle = "Seconds between two hops of a waiting dot",
+			duration = "Seconds one hop takes",
+		},
+
+		drift = {
+			amount = "How far the slow up and down wave moves a dot",
+			seconds = "Seconds one full wave takes",
+			stagger = "Phase delay of the wave from one dot to the next",
+		},
+
+		fill = {
+			seconds = "Seconds the dots take to fill once the game is ready",
+			hold = "Seconds to wait at 100% before leaving",
+		},
+
+		finish = {
+			dots_seconds = "Seconds the dots take to shrink away",
+			fade_seconds = "Seconds the white screen takes to fade out",
+		},
+	},
 })

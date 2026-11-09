@@ -19,7 +19,9 @@ const player = Players.LocalPlayer
 const player_gui = player.PlayerGui
 
 const client_modules = ReplicatedStorage.client_modules
-const entries = {} :: { ModuleScript }
+const entries = {
+	client_modules.camera.intro,
+} :: { ModuleScript }
 
 --// Settings
 _G.__DEV__ = RunService:IsStudio()

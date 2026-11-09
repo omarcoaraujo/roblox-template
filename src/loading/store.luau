@@ -21,9 +21,17 @@ const function run(target: typeof(vanish), seconds: number)
 	target(1)
 end
 
-const function finish()
+const function hide_dots()
 	run(vanish, config.finish.dots_seconds)
+end
+
+const function fade_out()
 	run(fade, config.finish.fade_seconds)
+end
+
+const function finish()
+	hide_dots()
+	fade_out()
 end
 
 const function reset()
@@ -37,6 +45,9 @@ return table.freeze {
 	progress = progress,
 	vanish = vanish,
 	fade = fade,
+
+	hide_dots = hide_dots,
+	fade_out = fade_out,
 
 	finish = finish,
 	reset = reset,

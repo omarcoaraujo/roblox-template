@@ -65,9 +65,10 @@ const function load()
 
 	fill()
 	task.wait(config.fill.hold)
-	loading_store.finish()
+	loading_store.hide_dots()
 
 	player:SetAttribute("loading_finished", true)
+	loading_store.fade_out()
 	destroy()
 end
 

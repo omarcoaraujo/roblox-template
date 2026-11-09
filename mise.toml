@@ -17,7 +17,7 @@ run = "pesde install"
 run = "mise run install && mise run sourcemap && mise run blink"
 
 [tasks.format]
-run = "stylua src data tests scripts"
+run = "stylua src data tests scripts playtests"
 
 [tasks.analyze]
 depends = ["sourcemap"]
@@ -34,7 +34,7 @@ luau-lsp analyze \
 	--ignore="**/lune_packages/**" \
 	--ignore="**/luau_packages/**" \
 	--ignore="**/cloud_test.luau" \
-	src data tests scripts
+	src data tests scripts playtests
 """
 
 [tasks.rojo]
@@ -58,4 +58,26 @@ else
 	rojo build test.project.json --output test-place.rbxl
 	sh scripts/minimized.sh run-in-roblox --place test-place.rbxl --script scripts/run_tests.luau
 fi
+"""
+
+[tasks.playtest]
+shell = "bash -c"
+run = """
+if ! ls playtests/specs/*/server.luau >/dev/null 2>&1; then
+	echo "no playtest specs yet"
+	exit 0
+fi
+
+if [ -z "$ROBLOX_PLAYTEST_PLACE_ID" ]; then
+	echo "ROBLOX_PLAYTEST_PLACE_ID is missing: set it in .env" >&2
+	exit 1
+fi
+
+filter="{{option(name='filter', default='')}}"
+filter=$(printf %s "$filter" | tr -d "'")
+flags=""
+if [ "{{flag(name='show')}}" = "true" ]; then flags="$flags --show"; fi
+if [ "{{flag(name='verbose')}}" = "true" ]; then flags="$flags --verbose"; fi
+if [ -n "$filter" ]; then flags="$flags --filter $filter"; fi
+scrim --place "$ROBLOX_PLAYTEST_PLACE_ID" --project playtest.project.json --specs ./playtests/specs $flags
 """

@@ -1,0 +1,78 @@
+{
+  "name": "Roblox Template Playtest",
+  "tree": {
+    "$className": "DataModel",
+
+    "ReplicatedStorage": {
+      "shared": {
+        "$path": "src/shared"
+      },
+
+      "packages": {
+        "$path": "roblox_packages"
+      },
+
+      "data": {
+        "$path": "data/shared"
+      },
+
+      "ui": {
+        "$path": "src/ui"
+      },
+
+      "client_modules": {
+        "$path": "src/client"
+      },
+
+      "playtests": {
+        "$path": "playtests/specs"
+      }
+    },
+
+    "ReplicatedFirst": {
+      "loading": {
+        "$path": "src/loading"
+      },
+
+      "packages": {
+        "$path": "roblox_packages"
+      }
+    },
+
+    "ServerScriptService": {
+      "server": {
+        "$path": "src/.server.luau"
+      },
+
+      "run_specs": {
+        "$path": "playtests/scrim/run_specs.server.luau"
+      }
+    },
+
+    "ServerStorage": {
+      "server_packages": {
+        "$path": "roblox_server_packages"
+      },
+
+      "server_modules": {
+        "$path": "src/server"
+      },
+
+      "data": {
+        "$path": "data/server"
+      }
+    },
+
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "client": {
+          "$path": "src/.client.luau"
+        },
+
+        "start_client": {
+          "$path": "playtests/scrim/start_client.client.luau"
+        }
+      }
+    }
+  }
+}

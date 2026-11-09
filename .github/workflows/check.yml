@@ -1,0 +1,88 @@
+name: Check
+on:
+  workflow_dispatch:
+  push:
+  pull_request:
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Rokit
+        uses: CompeyDev/setup-rokit@v0.1.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install pesde packages
+        run: pesde install
+
+      - name: Generate Blink network code
+        run: blink ./src/remotes/init.blink --yes
+
+      - name: Generate sourcemap
+        run: rojo sourcemap dev.project.json --output sourcemap.json
+
+      - name: Download Roblox type definitions
+        run: curl -L https://raw.githubusercontent.com/JohnnyMorganz/luau-lsp/refs/heads/main/scripts/globalTypes.d.luau -o roblox.d.luau
+
+      - name: Analyze
+        run: |
+          luau-lsp analyze \
+            --platform=roblox \
+            --sourcemap=sourcemap.json \
+            --definitions=roblox.d.luau \
+            --settings=.vscode/settings.json \
+            --ignore="**/network/**" \
+            --ignore="**/roblox_packages/**" \
+            --ignore="**/roblox_server_packages/**" \
+            --ignore="**/lune_packages/**" \
+            --ignore="**/luau_packages/**" \
+            --ignore="**/cloud_test.luau" \
+            src data tests scripts playtests
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    if: vars.ROBLOX_TEST_UNIVERSE_ID != ''
+    concurrency:
+      group: luau-execution
+      cancel-in-progress: false
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Rokit
+        uses: CompeyDev/setup-rokit@v0.1.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install pesde packages
+        run: pesde install
+
+      - name: Generate Blink network code
+        run: blink ./src/remotes/init.blink --yes
+
+      - name: Build and run the suite in the cloud
+        run: sh scripts/cloud_test.sh
+        env:
+          ROBLOX_API_KEY: ${{ secrets.ROBLOX_API_KEY }}
+          ROBLOX_TEST_UNIVERSE_ID: ${{ vars.ROBLOX_TEST_UNIVERSE_ID }}
+          ROBLOX_TEST_PLACE_ID: ${{ vars.ROBLOX_TEST_PLACE_ID }}
+
+  style:
+    name: Style
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Rokit
+        uses: CompeyDev/setup-rokit@v0.1.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check formatting
+        run: stylua --check src data tests scripts playtests

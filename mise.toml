@@ -1,3 +1,6 @@
+[env]
+_ = { file = [".env", "data/shared/backstage.json"] }
+
 [tasks.sourcemap]
 run = "rojo sourcemap dev.project.json --output sourcemap.json"
 
@@ -13,6 +16,33 @@ run = "pesde install"
 [tasks.build]
 run = "mise run install && mise run sourcemap && mise run blink"
 
+[tasks.format]
+run = "stylua src data"
+
+[tasks.analyze]
+depends = ["sourcemap"]
+shell = "bash -c"
+run = """
+[ -f roblox.d.luau ] || curl -L https://raw.githubusercontent.com/JohnnyMorganz/luau-lsp/refs/heads/main/scripts/globalTypes.d.luau -o roblox.d.luau
+luau-lsp analyze \
+	--sourcemap=sourcemap.json \
+	--definitions=roblox.d.luau \
+	--settings=.vscode/settings.json \
+	--ignore="**/network/**" \
+	--ignore="**/roblox_packages/**" \
+	--ignore="**/roblox_server_packages/**" \
+	--ignore="**/lune_packages/**" \
+	--ignore="**/luau_packages/**" \
+	--ignore="**/cloud_test.luau" \
+	src data
+"""
+
+[tasks.rojo]
+run = "rojo serve dev.project.json"
+
+[tasks.backstage]
+run = "backstage serve --port {{env.port}}"
+
 [tasks.dev]
 depends = ["build"]
-run = "rojo serve dev.project.json"
+run = [{ tasks = ["rojo", "backstage"] }]
